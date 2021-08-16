@@ -21,7 +21,7 @@ class ContactClass
     let emailRegex=RegExp('^[a-zA-Z0-9]+([\.\+\-][a-zA-Z0-9]+)?@[a-zA-Z0-9]+(\.[a-zA-Z]{2,}(\.[a-zA-Z]+)?)$');
     let addressRegex=RegExp('^[A-za-z]{4,}');
     let phoneRegex=RegExp('^[0-9]+\\s[0-9]{10}$');
-    let zipRegex=RegExp('^[1-9][0-9]{2}\\s{0,1}[0-9]{3}$');
+    let zipRegex=RegExp('^[1-9][0-9]{2}\\s?[0-9]{3}$');
     if(nameRegex.test(firstName) && nameRegex.test(lastName))
     {
         this.firstName=firstName;
@@ -63,6 +63,8 @@ class ContactClass
 //Usecase 1: Create contacts and display 
 try
 {
+
+    //Usecae 3: Store Address Book Contact in Array 
     var contactList=new Array();
     let number= parseInt(prompt("Enter number of contacts to be created:  "));
     var contactClassObject;
@@ -85,6 +87,5 @@ catch(e)
     console.error(e);
 }
 
-contactList.forEach(element => {
-    console.log(element.toString());
-});
+//Display Array Objects
+console.log(contactList);
