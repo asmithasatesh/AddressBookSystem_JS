@@ -1,6 +1,5 @@
 var prompt=require("prompt-sync")();
 
-
 //Class to Create contacts
 class ContactClass
 {
@@ -70,7 +69,7 @@ try
     var contactClassObject;
     while(number--)
     {
-        let firstName= prompt("Enter First Name:  ");
+        let firstName= prompt("\nEnter First Name:  ");
         let lastName=prompt("Enter Last Name:  ");
         let address=prompt("Enter Address:  ");
         let city=prompt("Enter City:  ");
@@ -108,7 +107,7 @@ function Modify()
         i++;
     }
 
-    console.log("Enter field to be modified 1.firstName 2.lastName 3.Address 4.city 5.state 6.zip 7.phoneNumber 8.email ");
+    console.log("Enter field to be modified 1.firstName 2.lastName 3.Address 4.city 5.state 6.zip 7.phoneNumber 8.email 9.Delete a contact");
     let ch =  parseInt (prompt());
     switch (ch)
     {
@@ -152,9 +151,14 @@ function Modify()
             let emails = prompt();
             contactList[i].email = emails;
             break;
-        
+
+        //Usecae 5: Delete a user based on Name
+        case 9:
+            delete contactList[i];
+             break;        
         default:
             console.log("Invalid Option");
             break;
     }
 }
+contactList.Take
