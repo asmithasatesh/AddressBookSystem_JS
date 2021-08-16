@@ -12,7 +12,6 @@ class ContactClass
    phoneNumber;
    email;
 
-
    //Usecase 2: Add Regex Expresions
    constructor(firstName,lastName,address,city,state,zip,phoneNumber,email)
    {
@@ -51,7 +50,6 @@ class ContactClass
     else throw 'Zip is Incorrect';
 
    }
-
    toString()
    {
     return ("Name: " + this.firstName +" "+ this.lastName + " \t Address: " +this.address+" \t City: " +this.city+" \t State: "+this.state+" \t Pincode: " +this.zip+" \t Phone Number: "+this.phoneNumber+" \t Email Id: "+this.email);
@@ -62,7 +60,6 @@ class ContactClass
 //Usecase 1: Create contacts and display 
 try
 {
-
     //Usecae 3: Store Address Book Contact in Array 
     var contactList=new Array();
     let number= parseInt(prompt("Enter number of contacts to be created:  "));
@@ -86,6 +83,7 @@ try
         {
             contactClassObject=new ContactClass(firstName,lastName,address,city,state,zip,phoneNumber,email);
             contactList.push(contactClassObject);
+            //Display Array Objects
             console.log(contactList);
         }
     }
@@ -94,18 +92,13 @@ catch(e)
 {
     console.error(e);
 }
-
-//Display Array Objects
-console.log(contactList);
 console.log("Do you want to modify existing Contact? Y/N");
 if(prompt() == 'Y')
 {
     Modify();
+    //UC4: Display after Modification
+    console.log(contactList);
 }
-
-//UC4: Display after Modification
-console.log(contactList);
-
 
 //Uecase 4: Modify a contact baed on Name
 function Modify() 
@@ -127,7 +120,6 @@ function Modify()
             }
     
         }
-
         console.log("Enter field to be modified 1.firstName 2.lastName 3.Address 4.city 5.state 6.zip 7.phoneNumber 8.email 9.Delete a contact");
         let ch =  parseInt (prompt());
         switch (ch)
@@ -186,15 +178,23 @@ function Modify()
     {
         console.error(e);
     }
-   
 }
-
 //Usecase 6: Ability to find number of contacts in the address book
-
 function Findcoint(count)
 {
     return count+1;
 }
-
 let totalCount=contactList.reduce(Findcoint,0);
 console.log("Total number of contacts in AddressBook: "+totalCount);
+
+//Usecase 8: Ability to search Person in a particular City or State 
+SearchBasedonCityortate();
+function SearchBasedonCityortate()
+{
+    console.log("Enter 'CITY' to Search by City\nEnter 'STATE' to Search by State");
+    let city= prompt();
+    let cityOrStateList = contactList.filter( x => (x.city== city || x.state==city));
+    console.log(cityOrStateList);
+}
+
+
