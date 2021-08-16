@@ -225,24 +225,34 @@ contactList.forEach(element => {
      cityList.set(element.city,cityValue);
     
 });
-console.log("--------------- Printing Contacts Based on State ---------------");
-for(let [key,states] of stateList)
-{
-    console.log("State: "+key)
 
-    for(let value of states)
+console.log("Enter 1- to view person based on City\nEnter 2- to view person based on State");
+if(prompt()== '1')
+{
+    console.log("--------------- Printing Contacts Based on City ---------------");
+    for(let [key,cities] of cityList)
     {
-     console.log(value.toString());
+        console.log("City: "+key+"\n");
+    
+        for(let value of cities)
+        {
+         console.log(value.toString());
+        }
     }
 }
-console.log("--------------- Printing Contacts Based on State ---------------");
-for(let [key,cities] of cityList)
+else
 {
-    console.log("City: "+key);
-
-    for(let value of cities)
+    console.log("--------------- Printing Contacts Based on State ---------------");
+    for(let [key,states] of stateList)
     {
-     console.log(value.toString());
+        console.log("State: "+key+"\n")
+    
+        for(let value of states)
+        {
+         console.log(value.toString());
+        }
     }
 }
+
+
 
