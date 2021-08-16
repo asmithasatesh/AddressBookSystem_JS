@@ -85,13 +85,13 @@ UsecaseOperations();
                Modify();
                break;
            case 4:
-               CountContacts()
+               CountContacts();
                break;
            case 5:
                SearchBasedonCityortate();
                break;
            case 6:
-               ViewBasedonCityorState()
+               ViewBasedonCityorState();
                break;
            case 7:
                SortMethod();
@@ -147,16 +147,48 @@ function Display(list)
     }
 }
 
-
+//Usecase 11: Ability to sort the entries in the address book alphabetically by Person’s name
 function SortMethod()
 {
-    //Usecase 11: Ability to sort the entries in the address book alphabetically by Person’s name
-    contactList.sort((x,y) => 
+    //Usecase 12: Ability to sort the entries in the address book by City, State, or Zip 
+    console.log("Enter 1-Sort Array based on First Name");
+    console.log("Enter 2-Sort Array based on City");
+    console.log("Enter 3-Sort Array based on State");
+    console.log("Enter 4-Sort Array based on Zip");
+    let option = parseInt(prompt());
+    switch (option)
     {
-        if(x.firstName>y.firstName) return 1;
-        else return -1;
-    });
+        case 1:
+            contactList.sort((x,y) => 
+            {
+                if(x.firstName>y.firstName) return 1;
+                else return -1;
+            });
+            break;
+        case 2:
+            contactList.sort((x,y) => 
+            {
+                if(x.city>y.city) return 1;
+                else return -1;
+            });
+            break;
+        case 3:
+            contactList.sort((x,y) => 
+            {
+                if(x.state>y.state) return 1;
+                else return -1;
+            });
+            break;
+        case 4:
+            contactList.sort((x,y) => 
+            {
+                if(x.zip>y.zip) return 1;
+                else return -1;
+            });
+            break;
+    }
     //Display Array Objects
+    console.log("--------------After Sorting --------------\n");
     Display(contactList);
 }
 
