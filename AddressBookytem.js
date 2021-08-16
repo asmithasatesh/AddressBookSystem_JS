@@ -161,4 +161,13 @@ function Modify()
             break;
     }
 }
-contactList.Take
+
+//Usecase 6: Ability to find number of contacts in the address book
+
+function Findcoint(count)
+{
+    return count+1;
+}
+
+let totalCount=contactList.reduce(Findcoint,0);
+console.log("Total number of contacts in AddressBook: "+totalCount);
